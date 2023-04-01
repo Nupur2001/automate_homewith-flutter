@@ -1,4 +1,10 @@
-import 'package:automate_home/room1.dart';
+// ignore_for_file: unused_import
+// Flutter run
+
+
+
+import 'package:home_automation_app/room1.dart';
+import 'package:home_automation_app/weather.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Smart Home App',
       theme: ThemeData(
-        // primarySwatch: Colors.indigo,
+        primarySwatch: Colors.indigo,
         hintColor: Colors.white,
       ),
       home: const HomePage(),
@@ -50,14 +56,7 @@ class _HomePageState extends State<HomePage>
                 fontWeight: FontWeight.bold,
               ),
             ),
-            RotatedBox(
-              quarterTurns: 135,
-              // child: Icon(
-              //   Icons.bar_chart_rounded,
-              //   size: 28,
-              //   color: Colors.white,
-              // ),
-            )
+      
           ],
         ),
         Expanded(
@@ -79,7 +78,7 @@ class _HomePageState extends State<HomePage>
               )
               ),
               ),
-            const SizedBox(height: 48),
+            const SizedBox(height: 20),
             const Text('SERVICES',
             style:TextStyle(
                 fontSize: 20,
@@ -87,24 +86,36 @@ class _HomePageState extends State<HomePage>
                 color: Colors.white,
               ),
               ),
-            const SizedBox(height: 80,width: 80,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            const SizedBox(height: 48),
+           Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                
-                // const SizedBox(height: 20,width: 40), 
+                const SizedBox(height: 48),
                 _cardMenu(
                 onTap: (){
                 Navigator.push(context,
-                MaterialPageRoute(builder:(context)=>const Room1()));
+                MaterialPageRoute(builder:(context)=>const Room1()
+                ));
                 },
-                icon:'assets/images/smart room.png',
-                title:'ROOM',
+                icon:'assets/images/Bedroom2.png',
+                title:'MY ROOM',
+                color: Colors.indigoAccent,
+                fontColor: Colors.white,
+                ),
+                // const SizedBox(height: 16), 
+                _cardMenu(
+                onTap: (){
+                Navigator.push(context,
+                MaterialPageRoute(builder:(context)=>const weather()
+                ));
+                },
+                icon:'assets/images/weather.png',
+                title:'TEMPERATURE',
                 color: Colors.indigoAccent,
                 fontColor: Colors.white,
                 ),
               ],
-            ),           
+            ),          
           ],
         ))
       ]),
